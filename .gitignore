@@ -1,0 +1,41 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+data/
+frontend/node_modules/
+frontend/dist/
+test-results/
+*.tsbuildinfo
+!requirements.txt
+!requirements-dev.txt
+
+# Local credentials for explicit live checks.
+key.txt
+
+# This standalone repository publishes README only; keep other documentation local.
+/docs/
+/doc/
+/documentation/
+*.md
+*.markdown
+*.rst
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+!/README.md
+
+# Local storage, backups, credentials and editor files.
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.pem
+*.key
+.idea/
+.vscode/

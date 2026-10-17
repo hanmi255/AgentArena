@@ -1,0 +1,494 @@
+.decision-theatre {
+  margin: 20px 0;
+  overflow: hidden;
+}
+.decision-theatre h2 small {
+  font-size: 13px;
+  color: #77768c;
+  margin-left: 10px;
+  font-weight: 500;
+}
+.stream-badge {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  color: #858399;
+  font-size: 12px;
+}
+.stream-badge.connected {
+  color: #26806d;
+}
+.stream-error {
+  margin: 8px 24px;
+  color: #9a6322;
+}
+.decision-theatre-body {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  border-top: 1px solid #efedf4;
+}
+.live-store-list {
+  padding: 12px;
+  background: #fcfbff;
+  border-right: 1px solid #efedf4;
+}
+.live-store-list > button {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 13px 9px;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.live-store-list > button.selected {
+  background: #eee9ff;
+}
+.live-store-list strong,
+.live-store-list small {
+  display: block;
+}
+.live-store-list small {
+  font-size: 10px;
+  color: #77768c;
+  margin-top: 6px;
+  overflow-wrap: anywhere;
+}
+.live-decision-content {
+  min-width: 0;
+  padding: 12px 20px 20px;
+}
+.flow-scroll {
+  overflow-x: auto;
+}
+.decision-flow {
+  display: block;
+  min-width: 620px;
+  width: 100%;
+  color: #aaa4be;
+}
+.flow-edge {
+  stroke: #d9d3e9;
+  stroke-width: 2;
+  fill: none;
+}
+.flow-return {
+  stroke-dasharray: 5 5;
+}
+.flow-moving {
+  stroke: #7953db;
+  stroke-dasharray: 8 7;
+  animation: flow-travel 0.8s linear infinite;
+}
+.flow-node rect {
+  fill: #faf9fd;
+  stroke: #e3dfed;
+  stroke-width: 1.5;
+}
+.flow-node text {
+  font-size: 13px;
+  fill: #625b75;
+  font-weight: 600;
+}
+.flow-node circle {
+  fill: #d1cada;
+}
+.flow-node.visited rect {
+  fill: #f0faf6;
+  stroke: #b9dfd0;
+}
+.flow-node.visited circle {
+  fill: #43a380;
+}
+.flow-node.active rect {
+  fill: #f0eaff;
+  stroke: #8960e0;
+  animation: node-breathe 1.5s ease-in-out infinite;
+}
+.flow-node.active circle {
+  fill: #7953db;
+}
+.flow-node.rejected rect {
+  fill: #fff0ef;
+  stroke: #dc8c83;
+}
+.flow-node .flow-caption,
+.flow-caption {
+  font-size: 10px;
+  fill: #9690a5;
+  font-weight: 400;
+}
+.rejected.flow-edge {
+  stroke: #d1766b;
+}
+.active-decision {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #f7f5fb;
+  border-radius: 12px;
+  font-size: 13px;
+}
+.active-decision > i {
+  width: 7px;
+  height: 7px;
+  background: #4eaa88;
+  border-radius: 50%;
+}
+.active-decision > span {
+  margin-left: auto;
+  color: #8d839b;
+  font-size: 12px;
+}
+.active-decision.is-working > i,
+.working-dot {
+  animation: activity-pulse 1.4s infinite;
+}
+.decision-evidence {
+  padding: 18px 6px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.decision-evidence small {
+  color: #8b8399;
+}
+.decision-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #7a6f8a;
+}
+.decision-facts span {
+  background: #f7f5fb;
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+.decision-theatre .projection-card {
+  animation: candidate-in 0.3s ease-out;
+}
+@keyframes candidate-in {
+  from {
+    opacity: 0.2;
+    transform: translateY(6px);
+  }
+}
+.decision-diff {
+  background: #fff8e9;
+  padding: 14px;
+  border-radius: 12px;
+  margin: 12px 0;
+}
+.decision-diff h3 {
+  font-size: 13px;
+}
+.decision-diff p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+}
+.changed-value {
+  background: #ffe5aa;
+  padding: 2px 6px;
+  border-radius: 5px;
+  animation: change-in 0.4s ease-out;
+}
+.forecast-actual {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #f0f8f4;
+  padding: 16px;
+  border-radius: 12px;
+  gap: 12px;
+  margin: 15px 0;
+}
+.forecast-actual span {
+  font-size: 11px;
+  color: #7a837d;
+}
+.forecast-actual strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 18px;
+  color: #2b6b55;
+}
+.event-replay-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.event-replay-controls .button {
+  padding: 8px 10px;
+  min-height: 34px;
+  font-size: 12px;
+}
+.event-replay-controls select {
+  max-width: 85px;
+}
+.event-slider {
+  width: 100%;
+  margin: 16px 0;
+  accent-color: #8256dd;
+}
+.event-log {
+  max-height: 320px;
+  overflow-y: auto;
+  border-top: 1px solid #eeeaf4;
+}
+.event-row {
+  border-bottom: 1px solid #f1eef7;
+  font-size: 11px;
+}
+.event-row summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.event-row strong {
+  font-weight: 500;
+}
+.event-row small {
+  margin-left: auto;
+  color: #aaa0b6;
+}
+.event-time {
+  background: transparent;
+  border: none;
+  color: #978fa2;
+  cursor: pointer;
+  font-size: 10px;
+}
+.event-row pre {
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 260px;
+  overflow: auto;
+  padding: 10px;
+  background: #f8f6fb;
+}
+.event-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #9f85c9;
+  flex-shrink: 0;
+}
+.event-completed {
+  background: #50a887;
+}
+.candidate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+  color: #847590;
+  margin: 8px 0;
+}
+.candidate-explanation {
+  margin: 8px 0 12px;
+  font-size: 11px;
+  color: #8b7f96;
+  line-height: 1.7;
+}
+.negotiation-panel,
+.experience-panel {
+  border-top: 1px solid #ece6f4;
+  margin-top: 18px;
+  padding-top: 8px;
+}
+.negotiation-panel details,
+.experience-panel details {
+  margin: 12px 0;
+  font-size: 12px;
+}
+.negotiation-panel summary,
+.experience-panel summary {
+  cursor: pointer;
+  color: #6d548e;
+}
+.negotiation-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+}
+.negotiation-message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f2eefb;
+  font-size: 12px;
+}
+.negotiation-message.buyer {
+  align-self: flex-end;
+  background: #edf7f0;
+}
+.negotiation-message b {
+  margin-right: 10px;
+}
+.negotiation-message p {
+  margin: 6px 0 0;
+  color: #84798e;
+}
+.contract-list {
+  padding: 10px;
+  border-radius: 10px;
+  background: #faf8fd;
+  font-size: 11px;
+}
+.approval-list:empty {
+  display: none;
+}
+.approval-card {
+  padding: 24px;
+  margin: 20px 0;
+  border: 1px solid #ddc786;
+  border-radius: 18px;
+  background: #fffcf2;
+}
+.approval-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.approval-card > p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.approval-card details {
+  font-size: 13px;
+  margin: 18px 0;
+}
+.approval-card summary {
+  cursor: pointer;
+}
+.approval-edit > div {
+  display: grid;
+  grid-template-columns: 70px 1fr 1fr;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0;
+}
+.approval-edit label {
+  display: block;
+  font-size: 11px;
+}
+.approval-edit input {
+  width: 100%;
+  margin-top: 6px;
+}
+.status-awaiting_approval {
+  background: #fff5db;
+  color: #9a762c;
+}
+.agent-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+.agent-options-grid.rule-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.agent-options-grid .field {
+  font-size: 11px;
+}
+.agent-options-grid select {
+  width: 100%;
+}
+.branch-panel {
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.branch-panel p {
+  color: #8e839d;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.branch-panel .form-grid {
+  margin: 15px 0;
+}
+.branch-result {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 12px;
+  margin-top: 15px;
+}
+@keyframes flow-travel {
+  to {
+    stroke-dashoffset: -30;
+  }
+}
+@keyframes node-breathe {
+  50% {
+    stroke-width: 3;
+  }
+}
+@keyframes activity-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes receipt-in {
+  from {
+    transform: translateY(8px);
+    opacity: 0.3;
+  }
+}
+@keyframes change-in {
+  from {
+    background: #ffc75b;
+  }
+}
+@media (max-width: 800px) {
+  .decision-theatre-body {
+    grid-template-columns: 1fr;
+  }
+  .live-store-list {
+    display: flex;
+    overflow-x: auto;
+    border-right: 0;
+  }
+  .live-store-list > button {
+    min-width: 150px;
+  }
+  .live-decision-content {
+    padding: 8px 12px 16px;
+  }
+  .decision-flow {
+    min-width: 620px;
+  }
+  .decision-theatre .panel-heading {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .forecast-actual strong {
+    font-size: 14px;
+  }
+  .approval-card {
+    padding: 16px;
+  }
+  .agent-options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .decision-flow *,
+  .active-decision *,
+  .projection-card,
+  .changed-value {
+    animation: none !important;
+    transition: none !important;
+  }
+}

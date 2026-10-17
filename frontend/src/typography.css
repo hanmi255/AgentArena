@@ -1,0 +1,11 @@
+/* Compact labels stay readable against the light product surfaces. */
+:root {
+  font-optical-sizing: auto;
+}
+input[type="number"] {
+  font-variant-numeric: tabular-nums;
+}
+button,
+summary {
+  user-select: none;
+}

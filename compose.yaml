@@ -1,0 +1,47 @@
+services:
+  arena:
+    build: .
+    ports:
+      - "127.0.0.1:8010:8010"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      ARENA_EXECUTION: ${ARENA_EXECUTION:-embedded}
+      MODEL_BASE_URL: ${MODEL_BASE_URL:-https://api.openai.com/v1}
+      MODEL_NAME: ${MODEL_NAME:-}
+      MODEL_API_KEY: ${MODEL_API_KEY:-}
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/api/health')"]
+      interval: 15s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+  worker:
+    profiles: ["workers"]
+    build: .
+    command: ["python", "-m", "arena.worker"]
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      arena:
+        condition: service_healthy
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "127.0.0.1:6385:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+volumes:
+  redis-data:
