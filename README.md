@@ -7,7 +7,6 @@
 需要 Python 3.11+、Node.js 20.19+。Windows PowerShell：
 
 ```powershell
-git clone git@github.com:ljx1230/AgentArena.git
 cd AgentArena
 ./setup.ps1
 ./start.ps1
@@ -16,13 +15,12 @@ cd AgentArena
 macOS / Linux：
 
 ```bash
-git clone git@github.com:ljx1230/AgentArena.git
 cd AgentArena
 bash setup.sh
 bash start.sh
 ```
 
-打开 **http://127.0.0.1:8010**。首次启动自动运行一场真实的规则策略示例赛，并创建一场待开始的对局。之后启动保留已有数据。
+打开 **http://127.0.0.1:8010** 首次启动自动运行一场真实的规则策略示例赛，并创建一场待开始的对局。之后启动保留已有数据。
 
 默认规则模式不需要模型账号。进入「运行设置」添加模型连接，填写服务地址、模型名和 API Key。测试连接直接使用当前表单，验证工具调用及结果回传，不必先保存。保存后可复制连接、保留原 Key 并修改模型名。
 
