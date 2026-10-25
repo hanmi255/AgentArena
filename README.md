@@ -2,8 +2,6 @@
 
 多智能体商业经营沙盘。让不同经营策略在同一市场竞争，用实际成交、库存和现金流检验 Agent 的决策。
 
-这是 AgentArena 的独立源码仓库，代码、依赖配置与运行数据均以本目录为根。与原招聘网站仓库分别维护，不自动同步代码、提交或数据库。本仓库只发布 README，不包含其他项目文档或文档截图。
-
 ## 启动
 
 需要 Python 3.11+、Node.js 20.19+。Windows PowerShell：
@@ -63,15 +61,15 @@ DeepSeek 专用适配器保留思考模式工具回传所需的 `reasoning_conte
 
 ## 技术组成
 
-| 层 | 实现 |
-| --- | --- |
-| 工作台 | React、TypeScript strict、Vite、响应式布局、SSE |
-| API | FastAPI、Pydantic、后台异步调度 |
-| Agent | LangChain `create_agent`、工具预算中间件、JSON / ToolStrategy 结构化方案 |
-| 编排 | LangGraph 条件分支、规划 / 试算 / 审核 / 修订，内外层 checkpoint |
-| 结算 | 独立确定性引擎，整数分记账、库存成本核算 |
-| 存储 | SQLite WAL、事务、唯一约束、历史快照 |
-| 调度 | SQLite 持久化任务、事务 Outbox、租约与独立 worker；可启用 Redis Streams |
+| 层     | 实现                                                                       |
+| ------ | -------------------------------------------------------------------------- |
+| 工作台 | React、TypeScript strict、Vite、响应式布局、SSE                            |
+| API    | FastAPI、Pydantic、后台异步调度                                            |
+| Agent  | LangChain `create_agent`、工具预算中间件、JSON / ToolStrategy 结构化方案 |
+| 编排   | LangGraph 条件分支、规划 / 试算 / 审核 / 修订，内外层 checkpoint           |
+| 结算   | 独立确定性引擎，整数分记账、库存成本核算                                   |
+| 存储   | SQLite WAL、事务、唯一约束、历史快照                                       |
+| 调度   | SQLite 持久化任务、事务 Outbox、租约与独立 worker；可启用 Redis Streams    |
 
 ## 代码结构
 
@@ -98,15 +96,15 @@ tests/             后端回归与协议测试
 
 可复制 `.env.example` 为 `.env`；模型也可通过设置页配置。`.env` 仅用于初始化数据库中的模型配置，之后以设置页保存的值为准。
 
-| 变量 | 默认值 |
-| --- | --- |
-| `ARENA_HOST` | `127.0.0.1` |
-| `ARENA_PORT` | `8010` |
-| `ARENA_DATA_DIR` | 本项目 `data/` |
-| `REDIS_URL` | 留空，使用 SQLite 任务队列 |
-| `ARENA_EXECUTION` | `embedded`，内置 worker；`external`，独立 worker |
-| `MODEL_BASE_URL` | `https://api.openai.com/v1` |
-| `MODEL_NAME` / `MODEL_API_KEY` | 留空 |
+| 变量                               | 默认值                                               |
+| ---------------------------------- | ---------------------------------------------------- |
+| `ARENA_HOST`                     | `127.0.0.1`                                        |
+| `ARENA_PORT`                     | `8010`                                             |
+| `ARENA_DATA_DIR`                 | 本项目 `data/`                                     |
+| `REDIS_URL`                      | 留空，使用 SQLite 任务队列                           |
+| `ARENA_EXECUTION`                | `embedded`，内置 worker；`external`，独立 worker |
+| `MODEL_BASE_URL`                 | `https://api.openai.com/v1`                        |
+| `MODEL_NAME` / `MODEL_API_KEY` | 留空                                                 |
 
 后端 `.venv/Scripts/python -m arena.main`，前端 `npm run dev --prefix frontend`（5178，API 代理到 8010）。Linux Python 路径改为 `.venv/bin/python`。前端构建后由后端统一提供，不需要额外 Web 服务。API 文档位于 `/api/docs`。
 

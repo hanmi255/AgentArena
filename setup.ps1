@@ -5,7 +5,7 @@ if (-not (Test-Path ".venv/Scripts/python.exe")) {
 }
 & .venv/Scripts/python.exe -m pip install -r requirements-dev.txt -c requirements.lock
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-npm ci --prefix frontend
+npm ci --prefix frontend --allow-scripts=esbuild
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 npm run build --prefix frontend
 exit $LASTEXITCODE
